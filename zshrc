@@ -1,5 +1,14 @@
 archey | lolcat
 
+# Auto Completion
+autoload -Uz compinit
+compinit
+setopt COMPLETE_ALIASES
+# Suggest a package to download when command not found
+source /usr/share/doc/pkgfile/command-not-found.zsh
+# Syntax Highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
