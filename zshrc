@@ -9,6 +9,9 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 # Syntax Highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Python Virtual Environments
+source /usr/bin/virtualenvwrapper.sh
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
