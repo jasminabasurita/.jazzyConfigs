@@ -106,9 +106,9 @@ alias gs="git status"
 alias librewriter="libreoffice --writer"
 
 # NPM Aliases
-alias npmg="npm i -g "
-alias npms="npm-link "
-alias npmd="npm-link -D "
+alias npmg="sudo npm i -g"
+alias npms="npm i -s"
+alias npmd="npm i --save-dev"
 alias npmst="npm start"
 alias npmt="npm test"
 alias npmr="npm run"
