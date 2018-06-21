@@ -15,6 +15,9 @@ source /usr/bin/virtualenvwrapper.sh
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Art
+export PATH=$PATH:~/.articulate/art/bin
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -114,3 +117,8 @@ alias npmt="npm test"
 alias npmr="npm run"
 alias npmrsd="npm run start-dev"
 alias psync="rsync -a --partial --info=progress2"
+
+# Docker Aliases
+alias dock="docker-compose"
+alias dock-test="docker-compose run --rm app yarn run test"
+alias dock-lint="docker-compose run --rm app yarn run lint"
