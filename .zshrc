@@ -122,3 +122,10 @@ alias psync="rsync -a --partial --info=progress2"
 alias dock="docker-compose"
 alias dock-test="docker-compose run --rm app yarn run test"
 alias dock-lint="docker-compose run --rm app yarn run lint"
+alias dock-install="docker-compose run --rm app yarn install"
+
+function gitit {
+  git add --all
+  git commit -m $1
+  git push
+}
