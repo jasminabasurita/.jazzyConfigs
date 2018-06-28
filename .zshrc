@@ -127,5 +127,10 @@ alias dock-install="docker-compose run --rm app yarn install"
 function gitit {
   git add --all
   git commit -m $1
+}
+
+function gititdone {
+  git add --all
+  git commit -m $1
   git push
 }
