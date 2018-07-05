@@ -134,3 +134,7 @@ function gititdone {
   git commit -m $1
   git push
 }
+
+moveAndSwitch() {
+  wmctrl -r ":ACTIVE:" -t $1 & wmctrl -s $1
+}
