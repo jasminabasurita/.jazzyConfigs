@@ -21,7 +21,7 @@ source /usr/bin/virtualenvwrapper.sh
 export ZSH=$HOME/.oh-my-zsh
 
 #ART
-export ART_PASSPHRASE=ce9ieGheelaegh0rohj9
+# export ART_PASSPHRASE=ce9ieGheelaegh0rohj9
 
 # NPM Token
 export NPM_TOKEN=`cat ~/.npmrc | grep authToken | tr "=" "\n" | tail -n 1`
@@ -32,6 +32,7 @@ export NPM_TOKEN=`cat ~/.npmrc | grep authToken | tr "=" "\n" | tail -n 1`
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="agnoster"
 # ZSH_THEME="risto"
+# ZSH_THEME="avit"
 ZSH_THEME="jazzy"
 # ZSH_THEME="dracula"
 
@@ -116,8 +117,8 @@ export EDITOR='nvim'
 alias vim=nvim
 alias gs="git status"
 alias gdlm="git diff --name-only master"
-alias librewriter="libreoffice --writer"
 alias cl="xclip -selection clipboard"
+alias sudo="sudo " #hack to allow aliases when using sudo
 
 # NPM Aliases
 alias npmg="sudo npm i -g"
@@ -131,11 +132,12 @@ alias psync="rsync -a --partial --info=progress2"
 alias pac-size="pacman -Qi | egrep '^(Name|Installed)' | cut -f2 -d':' | paste - - | column -t | sort -nrk 2 | grep MiB | less"
 
 # Docker Aliases
-alias dock="docker-compose"
-alias drma="docker-compose run --rm app"
+alias dock="docker-compose "
+alias drma="docker-compose run --rm app "
 alias dock-test="docker-compose run --rm app yarn run test"
 alias dock-lint="docker-compose run --rm app yarn run lint"
 alias dock-install="docker-compose run --rm app yarn install"
+alias dock-rebuild="docker-compose kill && docker-compose down && docker-compose up --build"
 alias dock-drop="sudo iptables -F DOCKER-ISOLATION-STAGE-2 && sudo iptables -F DOCKER-ISOLATION-STAGE-1"
 alias dock-add="sudo route add -net 172.17.0.0/17 gw 10.157.157.249; sudo route add -net 172.17.128.0/17 gw 10.157.157.249;"
 alias chkipt="sudo iptables -L -v"
@@ -143,6 +145,17 @@ alias dock-atomic="docker system prune -af --volumes"
 alias dub="docker-compose up --build --force-recreate"
 alias dpsql="docker-compose run --rm postgres psql postgresql://postgres@postgres:5432/"
 
+# art aliases
+alias arto="art -on "
+alias rs="rise-stage "
+alias artm="mitmproxy --listen-port 8080 --showhost"
+
+# yarn aliases
+alias yr="yarn run "
+alias yi="yarn install "
+
+# git aliases
+alias gsha="git rev-parse HEAD | xclip -selection clipboard"
 
 function gitit {
   git add --all
@@ -159,18 +172,6 @@ moveAndSwitch() {
   wmctrl -r ":ACTIVE:" -t $1 & wmctrl -s $1
 }
 
-workTime() {
-  sudo mv /etc/NetworkManager/dnsmasq.d/art.backup /etc/NetworkManager/dnsmasq.d/art.conf
-  sudo mv /etc/NetworkManager/dnsmasq.d/play.conf /etc/NetworkManager/dnsmasq.d/play.backup
-  sudo systemctl restart NetworkManager.service
-}
-
-playTime() {
-  sudo mv /etc/NetworkManager/dnsmasq.d/play.backup /etc/NetworkManager/dnsmasq.d/play.conf
-  sudo mv /etc/NetworkManager/dnsmasq.d/art.conf /etc/NetworkManager/dnsmasq.d/art.backup
-  sudo systemctl restart NetworkManager.service
-} 
-
 concon () {
   case "$1" in
     "prod") profile=prod ;;
@@ -180,3 +181,7 @@ concon () {
   echo "connecting to $ip"
   ssh -t $ip concon ${@:3}
 }
+
+# bindkey -v
+# export KEYTIMEOUT=20
+# bindkey -M viins 'jk' vi-cmd-mode

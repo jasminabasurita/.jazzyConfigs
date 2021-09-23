@@ -1,0 +1,5 @@
+rofi.modi:          combi
+rofi.combi-modi:    drun,run
+rofi.font:          Fira Code 12
+rofi.theme:         ~/.config/rofi/onedark.rasi
+rofi.terminal:      nvim
