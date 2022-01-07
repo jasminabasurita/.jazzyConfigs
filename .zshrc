@@ -144,6 +144,8 @@ alias chkipt="sudo iptables -L -v"
 alias dock-atomic="docker system prune -af --volumes"
 alias dub="docker-compose up --build --force-recreate"
 alias dpsql="docker-compose run --rm postgres psql postgresql://postgres@postgres:5432/"
+alias dump="-e POSTGRES_VERSION=12 dump-db $(basename $PWD) "
+alias takeadump='art -on rise-stage -e POSTGRES_VERSION=12 dump-db $(basename $PWD)'
 
 # art aliases
 alias arto="art -on "
