@@ -20,11 +20,21 @@ source /usr/bin/virtualenvwrapper.sh
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Source asdf
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# Hook direnv into zsh
+eval "$(direnv hook zsh)"
+
+export DEV_SCRIPTS_DIR=~/Instinct/dev_scripts
+
+source $DEV_SCRIPTS_DIR/init_dev_scripts.sh
+
 #ART
 # export ART_PASSPHRASE=ce9ieGheelaegh0rohj9
 
 # NPM Token
-export NPM_TOKEN=`cat ~/.npmrc | grep authToken | tr "=" "\n" | tail -n 1`
+# export NPM_TOKEN=`cat ~/.npmrc | grep authToken | tr "=" "\n" | tail -n 1`
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -187,3 +197,4 @@ concon () {
 # bindkey -v
 # export KEYTIMEOUT=20
 # bindkey -M viins 'jk' vi-cmd-mode
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
